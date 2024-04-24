@@ -1,0 +1,24 @@
+{
+  "name": "scaffold-lisk",
+  "version": "0.1.0",
+  "description": "Custom Lisk blockchain application scaffold",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "author": "Jordan Muthemba",
+  "license": "MIT",
+  "scripts": {
+    "react-app:dev": "yarn workspace @scaffold-lisk/react-app dev",
+    "react-app:build": "yarn workspace @scaffold-lisk/react-app build",
+    "react-app:start": "yarn workspace @scaffold-lisk/react-app start",
+    "react-app:lint": "yarn workspace @scaffold-lisk/react-app lint",
+    "hardhat:compile": "yarn workspace @scaffold-lisk/hardhat compile"
+    
+  },
+  "keywords": [
+    "lisk",
+    "blockchain",
+    "scaffold"
+  ]
+}
