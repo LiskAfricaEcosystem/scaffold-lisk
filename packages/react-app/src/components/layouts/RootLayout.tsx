@@ -18,7 +18,7 @@ interface LayoutProps {
 
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
-        <Web3Modal>  {/* Web3Modal wrapper added here */}
+       
         <div className="bg-gypsum overflow-hidden flex flex-col min-h-screen">
             <Header />
             <div className="py-16 max-w-7xl mx-auto space-y-8 sm:px-6 lg:px-8">
@@ -28,7 +28,7 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
             </div>
             <Footer />
         </div>
-        </Web3Modal>
+        
     );
 }
 

@@ -19,7 +19,7 @@ createWeb3Modal({
     //   "--w3m-accent": "cyan",
     //   "--w3m-border-radius-master": "0px"
     // }
-  });
+  });  
   
   export function Web3Modal({ children, initialState }: { children: ReactNode; initialState?: State }) {
     return (
