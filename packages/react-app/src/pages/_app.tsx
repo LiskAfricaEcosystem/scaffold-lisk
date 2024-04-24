@@ -4,7 +4,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import '@rainbow-me/rainbowkit/styles.css';
 import {
-  connectorsForWallets,
+  
   getDefaultConfig,
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
