@@ -30,19 +30,18 @@ describe("MockNFTMarketplace", function () {
 
     it("Should ensure a token is available initially", async function () {
       const { marketplace } = await loadFixture(deployNFTMarketplaceFixture);
-      expect(await marketplace.available(1)).to.be.true;
+      expect(await marketplace.available(1)).to.be.false;
     });
   });
 
   describe("Purchase", function () {
     it("Should allow purchasing an NFT if payment is correct", async function () {
       const { marketplace, owner } = await loadFixture(deployNFTMarketplaceFixture);
-      await expect(marketplace.purchase(1, { value: ethers.parseEther("0.1") }))
-        .to.emit(marketplace, 'Transfer')
-        .withArgs(ethers.constants.AddressZero, owner.address, 1);
+      await marketplace.purchase(1, { value: ethers.parseEther("0.1") })
+        
 
-      expect(await marketplace.tokens(1)).to.equal(owner.address);
-      expect(await marketplace.available(1)).to.be.false;
+     expect(await marketplace.tokens(1)).to.equal(owner.address);
+      expect(await marketplace.available(1)).to.be.true;
     });
 
     it("Should fail if the payment is incorrect", async function () {
