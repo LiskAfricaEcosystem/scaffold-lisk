@@ -3,9 +3,9 @@ import { ReactNode } from "react";
 import { Toaster } from 'react-hot-toast';
 import { Web3Modal } from '@/context/Web3Modal';
 
-import Header from "../ui/Header";
-import Footer from "../ui/Footer";
-import Sidebar from "../ui/Sidebar"
+import Header from "./Header";
+import Footer from "./Footer";
+import Sidebar from "./Sidebar"
 
 interface LayoutProps {
     children: ReactNode;
