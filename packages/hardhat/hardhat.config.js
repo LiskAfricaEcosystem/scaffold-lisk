@@ -1,3 +1,4 @@
+require("@nomicfoundation/hardhat-ignition/modules");
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config({ path: ".env" });
 

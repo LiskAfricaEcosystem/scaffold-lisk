@@ -7,7 +7,7 @@ import "hardhat/console.sol";
 /**
  * Interface for the FakeNFTMarketplace
  */
-interface IFakeNFTMarketplace {
+interface IMOCKNFTMarketplace {
     /// @dev getPrice() returns the price of an NFT from the FakeNFTMarketplace
     /// @return Returns the price in Wei for an NFT
     function getPrice() external view returns (uint256);
@@ -40,24 +40,18 @@ interface ICryptoDevsNFT {
         returns (uint256);
 }
 
-contract CrptoNftDAO is Ownable {
-    IFakeNFTMarketplace nftMarketplace;
+contract NftDAO is Ownable {
+    IMOCKNFTMarketplace nftMarketplace;
     ICryptoDevsNFT cryptoDevsNFT;
 
-    // Create a struct named Proposal containing all relevant information
+    // struct named Proposal containing all relevant information
     struct Proposal {
-        // nftTokenId - the tokenID of the NFT to purchase from FakeNFTMarketplace if the proposal passes
-        uint256 nftTokenId;
-        // deadline - the UNIX timestamp until which this proposal is active. Proposal can be executed after the deadline has been exceeded.
-        uint256 deadline;
-        // yayVotes - number of yay votes for this proposal
-        uint256 yayVotes;
-        // nayVotes - number of nay votes for this proposal
-        uint256 nayVotes;
-        // executed - whether or not this proposal has been executed yet. Cannot be executed before the deadline has been exceeded.
-        bool executed;
-        // voters - a mapping of CryptoDevsNFT tokenIDs to booleans indicating whether that NFT has already been used to cast a vote or not
-        mapping(uint256 => bool) voters;
+        uint256 nftTokenId; // nftTokenId - the tokenID of the NFT to purchase from FakeNFTMarketplace if the proposal passes
+        uint256 deadline;   // deadline - the UNIX timestamp until which this proposal is active. Proposal can be executed after the deadline has been exceeded.
+        uint256 yayVotes;   // yayVotes - number of yay votes for this proposal
+        uint256 nayVotes;   // nayVotes - number of nay votes for this proposal
+        bool executed;      // executed - whether or not this proposal has been executed yet. Cannot be executed before the deadline has been exceeded.
+        mapping(uint256 => bool) voters;          // voters - a mapping of CryptoDevsNFT tokenIDs to booleans indicating whether that NFT has already been used to cast a vote or not
     }
 
     // Create an enum named Vote containing possible options for a vote
@@ -66,10 +60,9 @@ contract CrptoNftDAO is Ownable {
         NAY
     }
 
-    // Create a mapping of ID to Proposal
-    mapping(uint256 => Proposal) public proposals;
-    // Number of proposals that have been created
-    uint256 public numProposals;
+
+    mapping(uint256 => Proposal) public proposals;     // Create a mapping of ID to Proposal
+    uint256 public numProposals;                       // Number of proposals that have been created
 
     // Create a modifier which only allows a function to be
     // called by someone who owns at least 1 CryptoDevsNFT
@@ -92,14 +85,8 @@ contract CrptoNftDAO is Ownable {
     // called if the given proposals' deadline HAS been exceeded
     // and if the proposal has not yet been executed
     modifier inactiveProposalOnly(uint256 proposalIndex) {
-        require(
-            proposals[proposalIndex].deadline <= block.timestamp,
-            "DEADLINE_NOT_EXCEEDED"
-        );
-        require(
-            proposals[proposalIndex].executed == false,
-            "PROPOSAL_ALREADY_EXECUTED"
-        );
+        require( proposals[proposalIndex].deadline <= block.timestamp, "DEADLINE_NOT_EXCEEDED");
+        require(proposals[proposalIndex].executed == false, "PROPOSAL_ALREADY_EXECUTED");
         _;
     }
 
@@ -107,7 +94,7 @@ contract CrptoNftDAO is Ownable {
     // instances for FakeNFTMarketplace and CryptoDevsNFT
     // The payable allows this constructor to accept an ETH deposit when it is being deployed
     constructor(address _nftMarketplace, address _cryptoDevsNFT) payable {
-        nftMarketplace = IFakeNFTMarketplace(_nftMarketplace);
+        nftMarketplace = IMOCKNFTMarketplace(_nftMarketplace);
         cryptoDevsNFT = ICryptoDevsNFT(_cryptoDevsNFT);
     }
 
