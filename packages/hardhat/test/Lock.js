@@ -5,7 +5,7 @@
 // 1. Initial State Check: Verify that the initial price is set correctly and that a token is initially available.
 // 2. Purchase Token: Test purchasing an NFT and ensure the correct ownership and token availability post-purchase.
 // 3. Purchase Price Validation: Attempt to purchase with an incorrect amount and expect a revert.
-// 4. Token Reavailability: Ensure that a token isn't available after being purchased.
+// 4. Token availability: Ensure that a token isn't available after being purchased.
 const { time, loadFixture, } = require("@nomicfoundation/hardhat-toolbox/network-helpers");
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
