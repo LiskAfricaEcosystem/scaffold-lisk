@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "compile": "npx hardhat compile",
-    "deploy": "hardhat deploy",
+    "test": "npx hardhat test",
+    "deploy:normal": "npx hardhat run ./ignition/modules/deploy.js --network lisk-sepolia",
+    "deploy:ignition": "npx hardhat ignition deploy ./ignition/modules/deploy.js --network lisk-sepolia",
     "hardhat-verify": "hardhat verify"
   },
   "devDependencies": {

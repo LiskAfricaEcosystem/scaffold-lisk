@@ -14,11 +14,27 @@
     "react-app:start": "yarn workspace @scaffold-lisk/react-app start",
     "react-app:lint": "yarn workspace @scaffold-lisk/react-app lint",
     "hardhat:compile": "yarn workspace @scaffold-lisk/hardhat compile"
-    
   },
   "keywords": [
     "lisk",
     "blockchain",
     "scaffold"
+  ],
+  "dependencies": {
+    "chalk": "4.1.2",
+    "commander": "^9.4.0",
+    "fs-extra": "^10.1.0",
+    "inquirer": "^8.2.4",
+    "node-emoji": "^1.11.0",
+    "ora": "5.4.1",
+    "shelljs": "^0.8.5",
+    "yargs": "17.5.1"
+  },
+  "main": "bin/index.js",
+  "bin": {
+    "lisk": "bin/index.js"
+  },
+  "files": [
+    "bin"
   ]
 }
