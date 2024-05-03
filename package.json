@@ -2,12 +2,10 @@
   "name": "scaffold-lisk",
   "version": "0.1.0",
   "description": "Custom Lisk blockchain application scaffold",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "author": "Jordan Muthemba",
+  "workspaces": ["bin/*" ],
+  "authors": "Jordan Muthemba,  Ronex, Antony",
   "license": "MIT",
+  
   "scripts": {
     "react-app:dev": "yarn workspace @scaffold-lisk/react-app dev",
     "react-app:build": "yarn workspace @scaffold-lisk/react-app build",
@@ -32,7 +30,7 @@
   },
   "main": "bin/index.js",
   "bin": {
-    "lisk": "bin/index.js"
+    "scaffold-lisk": "bin/index.js"
   },
   "files": [
     "bin"
