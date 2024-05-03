@@ -17,9 +17,7 @@ const createAsync = async () => {
 
   const pwd = process.cwd();
   shell.cd(pwd);
-  shell.exec(
-    `git clone https://github.com/LiskAfricaEcosystem/scaffold-lisk.git ${projectName}`
-  );
+  shell.exec(`git clone https://github.com/LiskAfricaEcosystem/scaffold-lisk.git ${projectName}`);
   shell.cd(projectName);
   const packageJsonPath = join(pwd, projectName, "package.json");
   fs.readFile(packageJsonPath, "utf8", (err, data) => {
@@ -46,33 +44,16 @@ const createAsync = async () => {
     });
   });
 
-  console.log(
-    chalk.yellow(
-      "\n\nRemember to change the git url using the command: git remote set-url origin new.git.url/here\n"
-    )
-  );
+  console.log(chalk.yellow("\n\nRemember to change the git url using the command: git remote set-url origin new.git.url/here\n"));
 
-  console.log(
-    chalk.green("🚀 Your Lisk starter project has been successfully created!\n")
-  );
+  console.log(chalk.green("🚀 Your Lisk starter project has been successfully created!\n"));
 
   console.log("Now you're all set to start your project!\n");
-  console.log(
-    chalk.green(
-      "Run `yarn install` and `yarn dev` from packages/react folder to start the project\n"
-    )
-  );
+  console.log(chalk.green("Run `yarn install` and `yarn dev` from packages/react folder to start the project\n"));
 
-  console.log(
-    chalk.green(
-      "Run `yarn install` from packages/hardhat install dependencies\n"
-    )
-  );
+  console.log(chalk.green("Run `yarn install` from packages/hardhat install dependencies\n"));
 
-  console.log(
-    chalk.green("Thank you for using Lisk Scaffold!") +
-      " If you have any questions or need further assistance, please refer to the README or reach out to our team.\n"
-  );
+  console.log(chalk.green("Thank you for using Lisk Scaffold!") + "If you have any questions or need further assistance, please refer to the README or reach out to our team.\n");
 
   console.log(chalk.blue("Happy coding! 🎉\n\n"));
 
