@@ -8,6 +8,9 @@ const Os = require("os");
 const { join } = require("path");
 const fs = require("fs");
 
+
+const BASE_URL = "https://github.com/LiskAfricaEcosystem/scaffold-lisk.git"
+
 const createAsync = async () => {
   let { projectName } = await inquirer.prompt({
     type: "input",
@@ -16,9 +19,12 @@ const createAsync = async () => {
   });
 
   const pwd = process.cwd();
+
+  // Shell commands to clone and trim the required directories
   shell.cd(pwd);
-  shell.exec(`git clone https://github.com/LiskAfricaEcosystem/scaffold-lisk.git ${projectName}`);
+  shell.exec(`git clone --depth 2 --filter=blob:none --sparse ${BASE_URL}  ${projectName}`);
   shell.cd(projectName);
+
   const packageJsonPath = join(pwd, projectName, "package.json");
   fs.readFile(packageJsonPath, "utf8", (err, data) => {
     if (err) {

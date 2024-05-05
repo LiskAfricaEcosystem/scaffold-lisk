@@ -1,5 +1,5 @@
 {
-  "name": "@scaffold-lisk/react-app",
+  "name": "@lisk-scaffold-dapp/react-app",
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
