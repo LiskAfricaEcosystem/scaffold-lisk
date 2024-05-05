@@ -29,15 +29,6 @@ To run the project you will also need to install the following tools:
 
 - additionally you can scaffold a project easily by using the command `npx lisk-scaffold-dapp@latest create`
 
-
-    // ToDo: if project isn't web no need to netlify.toml
-    // ToDo: flutter project doesn't have package.json
-    // ToDo: Change the name of the project in package.json for the generated packages.
-    // ToDo: write back the changes to the package.json
-
-
-
-
 <!-- 
   "scripts": {
     "react-app:dev": "yarn workspace @scaffold-lisk/react-app dev",

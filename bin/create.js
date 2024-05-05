@@ -188,6 +188,12 @@ const createAsync = async () => {
   }
 }
 
+
+    // ToDo: if project isn't web no need to netlify.toml
+    // ToDo: flutter project doesn't have package.json
+    // ToDo: Change the name of the project in package.json for the generated packages.
+    // ToDo: write back the changes to the package.json
+
 async function isOutputDirectoryEmpty(outputFolder, force = false) {
   const files = await readdir(outputFolder);
   if (files.length > 0 && !force) {

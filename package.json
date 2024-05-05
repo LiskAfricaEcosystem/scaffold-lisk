@@ -1,6 +1,6 @@
 {
   "name": "lisk-scaffold-dapp",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Custom Lisk blockchain application scaffold",
   "repository": {
     "type": "git",
@@ -12,12 +12,14 @@
     "url": "https://github.com/LiskAfricaEcosystem/scaffold-lisk/issues"
   },
   "homepage": "https://github.com/LiskAfricaEcosystem/scaffold-lisk/blob/main/README.md",
-  "workspaces": ["bin/*"],
+  "workspaces": [
+    "bin/*"
+  ],
   "dependencies": {
     "chalk": "4.1.2",
-    "commander": "^9.4.0",
+    "commander": "^9.5.0",
     "fs-extra": "^10.1.0",
-    "inquirer": "^8.2.4",
+    "inquirer": "^8.2.6",
     "node-emoji": "^1.11.0",
     "ora": "5.4.1",
     "shelljs": "^0.8.5",
@@ -31,7 +33,7 @@
     "scaffold"
   ],
   "bin": {
-    "scaffold-lisk": "bin/index.js"
+    "lisk-scaffold-dapp": "bin/index.js"
   },
   "files": [
     "bin"
