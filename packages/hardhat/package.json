@@ -1,5 +1,5 @@
 {
-  "name": "nft_dao",
+  "name": "@lisk-scaffold-dapp/hardhat",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

@@ -9,7 +9,10 @@ let stdin = {
   stdin: "",
 };
 
-program.command("create-lisk-dapp").description("Generate a new Lisk project").action(createAsync);
+program
+.command("create")
+.option("-t, --template <name>", "Template to use")
+.description("Generate a new Lisk project").action(createAsync);
 
 if (process.stdin.isTTY) {
   program.parse(process.argv);
