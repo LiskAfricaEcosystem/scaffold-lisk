@@ -1,5 +1,5 @@
 {
-  "name": "nft_dao",
+  "name": "@lisk-scaffold-dapp/hardhat",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "test": "npx hardhat test",
     "deploy:normal": "npx hardhat run ./ignition/modules/deploy.js --network lisk-sepolia",
     "deploy:ignition": "npx hardhat ignition deploy ./ignition/modules/deploy.js --network lisk-sepolia",
-    "hardhat-verify": "hardhat verify"
+    "hardhat-verify": "npx hardhat verify"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
@@ -29,7 +29,6 @@
     "@types/mocha": ">=9.1.0",
     "chai": "^4.2.0",
     "dotenv": "^16.4.5",
-    "ethers": "^6.4.0",
     "hardhat-gas-reporter": "^1.0.8",
     "solidity-coverage": "^0.8.1",
     "ts-node": ">=8.0.0",

@@ -1,16 +1,16 @@
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { Fragment } from "react";
 import Image from "next/image";
-
-import { SwitchTheme } from "./SwitchTheme";
 
 
 export default function Header() {
     
+
+   
+
     return (
-        <Disclosure as="nav" className="bg-prosperity">
+        <Disclosure as="nav" className="bg-prosperity border-b border-black ">
             {({ open }) => (
                 <>
                     <div className=" mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -45,55 +45,36 @@ export default function Header() {
                                     />
                                 </div>
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                                    <a href="#" className="inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900">Home</a>
-                                    {/* Dropdown menu for Tokens */}
-                                    <Menu as="div" className="relative inline-flex">
-                                        <Menu.Button className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900">
-                                            Tokens
-                                        </Menu.Button>
-                                        <Transition
-                                            as={Fragment}
-                                            enter="transition ease-out duration-100"
-                                            enterFrom="transform opacity-0 scale-95"
-                                            enterTo="transform opacity-100 scale-100"
-                                            leave="transition ease-in duration-75"
-                                            leaveFrom="transform opacity-100 scale-100"
-                                            leaveTo="transform opacity-0 scale-95"
-                                        >
-                                            <Menu.Items className="absolute z-10 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                                <div className="py-1">
-                                                    <Menu.Item>
-                                                        {({ active }) => (
-                                                            <a href="#" className={`block px-4 py-2 text-sm text-gray-700 ${active ? 'bg-gray-100' : ''}`}>
-                                                                Analytics
-                                                            </a>
-                                                        )}
-                                                    </Menu.Item>
-                                                    {/* Additional menu items can be added here */}
-                                                </div>
-                                            </Menu.Items>
-                                        </Transition>
-                                    </Menu>
-                                    <a href="#" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900">NFTs</a>
+                                    <a
+                                        href="#"
+                                        className="inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900"
+                                    >
+                                        Home
+                                    </a>
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                               
                                     <ConnectButton
                                         showBalance={{
                                             smallScreen: true,
                                             largeScreen: true,
                                         }}
                                     />
-                                    {/* <SwitchTheme /> */}
+                              
                             </div>
                         </div>
                     </div>
 
                     <Disclosure.Panel className="sm:hidden">
                         <div className="space-y-1 pt-2 pb-4">
-                            <Disclosure.Button as="a" href="#" className="block  py-2 pl-3 pr-4 text-base font-medium text-black">Home</Disclosure.Button>
-                            <Disclosure.Button as="a" href="#" className="block py-2 pl-3 pr-4 text-base font-medium text-black">Tokens</Disclosure.Button>
-                            <Disclosure.Button as="a" href="#" className="block py-2 pl-3 pr-4 text-base font-medium text-black">NFTs</Disclosure.Button>
+                            <Disclosure.Button
+                                as="a"
+                                href="#"
+                                className="block  py-2 pl-3 pr-4 text-base font-medium text-black"
+                            >
+                                Home
+                            </Disclosure.Button>
                             {/* Add here your custom menu elements */}
                         </div>
                     </Disclosure.Panel>

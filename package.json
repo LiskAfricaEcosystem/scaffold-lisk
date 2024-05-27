@@ -1,36 +1,39 @@
 {
-  "name": "scaffold-lisk",
-  "version": "0.1.0",
+  "name": "lisk-scaffold-dapp",
+  "version": "0.0.3",
   "description": "Custom Lisk blockchain application scaffold",
-  "workspaces": ["bin/*" ],
-  "authors": "Jordan Muthemba,  Ronex, Antony",
-  "license": "MIT",
-  
-  "scripts": {
-    "react-app:dev": "yarn workspace @scaffold-lisk/react-app dev",
-    "react-app:build": "yarn workspace @scaffold-lisk/react-app build",
-    "react-app:start": "yarn workspace @scaffold-lisk/react-app start",
-    "react-app:lint": "yarn workspace @scaffold-lisk/react-app lint",
-    "hardhat:compile": "yarn workspace @scaffold-lisk/hardhat compile"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiskAfricaEcosystem/scaffold-lisk.git"
   },
-  "keywords": [
-    "lisk",
-    "blockchain",
-    "scaffold"
+  "authors": "Jordan, Ronex, Antony",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LiskAfricaEcosystem/scaffold-lisk/issues"
+  },
+  "homepage": "https://github.com/LiskAfricaEcosystem/scaffold-lisk/blob/main/README.md",
+  "workspaces": [
+    "bin/*"
   ],
   "dependencies": {
     "chalk": "4.1.2",
-    "commander": "^9.4.0",
+    "commander": "^9.5.0",
     "fs-extra": "^10.1.0",
-    "inquirer": "^8.2.4",
+    "inquirer": "^8.2.6",
     "node-emoji": "^1.11.0",
     "ora": "5.4.1",
     "shelljs": "^0.8.5",
     "yargs": "17.5.1"
   },
   "main": "bin/index.js",
+  "keywords": [
+    "lisk",
+    "Dapp",
+    "blockchain",
+    "scaffold"
+  ],
   "bin": {
-    "scaffold-lisk": "bin/index.js"
+    "lisk-scaffold-dapp": "bin/index.js"
   },
   "files": [
     "bin"

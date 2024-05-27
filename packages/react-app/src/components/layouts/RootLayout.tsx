@@ -11,18 +11,17 @@ interface LayoutProps {
     children: ReactNode;
 }
 
-// export const metadata: Metadata = {
-//     title: 'Lisk Scaffold' as string,
-//     description: 'This a Lisk Blockchain Scaffold',
-//   };
+export const metadata = ({
+   title: "Lisk Scaffold",
+   description: "Built with 🏗 Lisk Blockchain Scaffold",
+});
 
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
        
-        <div className="bg-gypsum overflow-hidden flex flex-col min-h-screen">
+        <div className="bg-gypsum flex flex-col min-h-screen">
             <Header />
             <div className="py-16 max-w-7xl mx-auto space-y-8 sm:px-6 lg:px-8">
-                {/* <Sidebar /> */}
                 {children}
                 <Toaster position="bottom-right" reverseOrder={false} />
             </div>

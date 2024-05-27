@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-console.log("Simple Lisk Dapp Scaffold");
+console.log("Create a simple Lisk Dapp Scaffold");
 const commander = require("commander");
 const { createAsync } = require("./create.js");
 
@@ -9,7 +9,19 @@ let stdin = {
   stdin: "",
 };
 
-program.command("create-lisk-dapp").description("Generate a new Lisk project").action(createAsync);
+program
+.command("create")
+.option("-t, --template <name>", "Specify a template to use for the project")
+.option("-f, --force", "Force project creation even if the output directory is not empty")
+.description("Generate a new Lisk project")
+.action(createAsync);
+
+program.on("--help", () => {
+  console.log("");
+  console.log("Examples:");
+  console.log("  $ lisk-scaffold-dapp create");
+  console.log("  $ lisk-scaffold-dapp create --template my-template");
+});
 
 if (process.stdin.isTTY) {
   program.parse(process.argv);

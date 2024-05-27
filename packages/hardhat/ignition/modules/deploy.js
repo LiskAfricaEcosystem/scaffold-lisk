@@ -6,12 +6,30 @@ async function main() {
   // compile the contract to get the latest bytecode and ABI - Optional
   await hre.run('compile');
 
-  // step one get the NFT Marketplace 
-  const mockNFTMarketplace = await hre.ethers.getContractFactory("MockNFTMarketplace");
-    // step one deploy the NFT Marketplace 
-  const deployedNFT = await mockNFTMarketplace.deploy();
-  await deployedNFT.waitForDeployment()    //  deployed(); depreciated
-  console.log("NFT marketplace deployed to:", await deployedNFT.getAddress()) // .address); depreciated
+  // Get the contract factory
+  const sampleContract = await hre.ethers.getContractFactory("SampleContract");
+
+  // Deploy the contract
+  const deployedSampleContract = await sampleContract.deploy();
+  
+  // Wait for the deployment to be mined
+  await deployedSampleContract.waitForDeployment();
+  console.log("Sample Contract Deployed to:", await deployedSampleContract.getAddress());
+
+  // Set the initial data (for example, 42)
+  const initialData = 42;
+  const tx = await deployedSampleContract.setData(initialData);
+    
+  // Wait for the transaction to be mined
+  await tx.wait();
+  console.log("Initial data set to:", initialData);
+
+  // // step one get the NFT Marketplace 
+  // const mockNFTMarketplace = await hre.ethers.getContractFactory("MockNFTMarketplace");
+  //   // step two deploy the NFT Marketplace 
+  // const deployedNFT = await mockNFTMarketplace.deploy();
+  // await deployedNFT.waitForDeployment()    //  deployed(); depreciated
+  // console.log("NFT marketplace deployed to:", await deployedNFT.getAddress()) // .address); depreciated
 
   // Step two, create a new instance of the NFTDAO contract
   // const nftDao = await hre.ethers.getContractFactory("NFTDAO");

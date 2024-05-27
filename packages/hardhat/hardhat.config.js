@@ -5,10 +5,17 @@ require("dotenv").config({ path: ".env" });
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   networks: {
+
     hardhat: {
       allowUnlimitedContractSize: false,
     },
-    // for testnet
+
+    'lisk': {
+      url: 'https://rpc.api.lisk.com',
+      accounts: [process.env.WALLET_PRIVATE_KEY],
+      gasPrice: 1000000000,
+    },
+    
     'lisk-sepolia': {
       url: 'https://rpc.sepolia-api.lisk.com',
       accounts: [process.env.WALLET_PRIVATE_KEY],
