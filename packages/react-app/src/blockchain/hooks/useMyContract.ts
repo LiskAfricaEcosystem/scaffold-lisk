@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useAccount, useConnect, usePrepareContractWrite, useWaitForTransaction, useReadContract, useWriteContract } from 'wagmi';
+import { useAccount, useConnect, useReadContract, useWriteContract } from 'wagmi';
 import abi from '../abis/SampleContract.json';
 
 const CONTRACT_ADDRESS = '0xd584D4BA3Dd0200b3e27d67Dd39647ea43B239c5'; // 0xSampleContractAddress
@@ -20,12 +20,18 @@ export const useMyContract = () => {
         functionName: 'getData',
     });
     
-    const { data: writeHash, write: writeContract, isError: writeError, error: writeContractError, isLoading: isWriteLoading } = useWriteContract({
-        address: CONTRACT_ADDRESS,
-        abi: abi,
-        functionName: 'setData',
-    });
+    const { writeContractAsync:writeContract } = useWriteContract()  
+
+    const setData = async(_data:number)=>{
+        await writeContract({
+            address: CONTRACT_ADDRESS,
+            abi: abi,
+            functionName: 'setData',
+            args:[_data]
+        })
+    }
     
-    return { readData, writeHash, setGetData, writeContract, readError, readContractError, isReadLoading, writeError, writeContractError, isWriteLoading };
+    
+    return { readData, setGetData, writeContract, readError, readContractError, isReadLoading,setData };
 };
 
