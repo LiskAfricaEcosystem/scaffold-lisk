@@ -1,4 +1,4 @@
-'use client';
+
 
 import React, { ReactNode } from 'react';
 import { wagmiLiskconfig, wagmiConfig, projectId } from '@/blockchain/config';

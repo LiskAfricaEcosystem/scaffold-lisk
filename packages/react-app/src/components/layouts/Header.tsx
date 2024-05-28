@@ -4,6 +4,8 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Fragment } from "react";
 import Image from "next/image";
 
+import { SwitchTheme } from "./SwitchTheme";
+
 
 export default function Header() {
     
@@ -82,6 +84,7 @@ export default function Header() {
                                             largeScreen: true,
                                         }}
                                     />
+                                    {/* <SwitchTheme /> */}
                             </div>
                         </div>
                     </div>
