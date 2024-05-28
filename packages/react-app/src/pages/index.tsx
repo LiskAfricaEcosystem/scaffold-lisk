@@ -1,9 +1,13 @@
+
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import { type BaseError, useAccount, useConnect, useDisconnect, useReadContract, useWriteContract  } from "wagmi";
 import { useMyContract } from "../blockchain/hooks/useMyContract"
 import abi from '../blockchain/abis/SampleContract.json';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input"
+
 
 const CONTRACT_ADDRESS = '0xd584D4BA3Dd0200b3e27d67Dd39647ea43B239c5'; // 0xSampleContractAddress
 
@@ -12,20 +16,14 @@ export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const { address, isConnected } = useAccount();
 
-  const { setGetData, writeContract, readError, readContractError, isReadLoading, writeError, writeContractError, isWriteLoading } = useMyContract();
+  const { setGetData, writeContract, readError, readContractError, isReadLoading,setContractData,readData } = useMyContract();
   const [data, setData] = useState<string | null>(null);
   const [inputValue, setInputValue] = useState<number>(0);
 
-  const allPairsConfig = setGetData();
-
-  const { data: readData, isError: readIsError, error: readErrorData, isLoading: readIsLoading } = useReadContract({
-    address: allPairsConfig.address,
-    abi: allPairsConfig.abi,
-    functionName: allPairsConfig.functionName,
-    args: allPairsConfig.args,
-  });
+ 
 
   useEffect(() => {
+    
     console.log("readData", readData);
     console.log("readError", readError);
     console.log("readContractError", readContractError);
@@ -36,11 +34,11 @@ export default function Home() {
   const handleWrite = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const tx = await writeContract({ args: [inputValue] });
-      await tx.wait();
-      console.log("Transaction Hash:", tx.hash);
+      const tx = await setContractData(inputValue)
+     
+      console.log("Transaction Hash:", tx);
     } catch (error) {
-      console.error("Error writing data:", writeContractError);
+      console.error("Error writing data:", error);
     }
   };
 
@@ -75,6 +73,7 @@ export default function Home() {
         <div className="flex justify-center items-center space-x-2">
           <p className="my-2 font-medium">No Wallet Connected</p>
         </div>
+       
         )}
         <p className="text-center text-lg">
             Get started by editing{" "}
@@ -96,45 +95,27 @@ export default function Home() {
 
 
       <div>
-      <form onSubmit={handleWrite}>
-        <input
+      <form  className="flex justify-around items-center " onSubmit={handleWrite}>
+        
+        <Input
           type="number"
           value={inputValue}
           onChange={(e) => setInputValue(Number(e.target.value))}
           required
         />
-        <button type="submit">Write to Contract</button>
+        <Button  variant="destructive" type="submit">Write to Contract</Button>
       </form>
       </div>
-      <ReadContract />
+      <div className="flex flex-col justify-center items-center mt-10">
+        
+        <Button disabled={true} variant="secondary">Balance: {Number(readData)}</Button>
+      </div>
 
       
-      {/* {readError ? (
-        <div>Error: {(readContractError as BaseError).shortMessage || readContractError.message}</div>
-      ) : (
-      <button onClick={() => console.log("Read Data:", readData)}>Read from Contract</button>
-      {data && <p>Stored Data: {data}</p>}
-
-      )} */}
+     
     </div>
   );
 }
 
 
-  // read contract 
-  function ReadContract() {
-    const { data: data } = useReadContract({
-        address: CONTRACT_ADDRESS,
-        abi: abi,
-        functionName: 'getData'
-    })
-
-
   
-    return (
-      <div>
-        <h2>Read</h2>
-        <div>Balance: {data}</div>
-      </div>
-    )
-  }

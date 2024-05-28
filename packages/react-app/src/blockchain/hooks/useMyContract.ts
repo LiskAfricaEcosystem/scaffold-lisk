@@ -20,18 +20,20 @@ export const useMyContract = () => {
         functionName: 'getData',
     });
     
-    const { writeContractAsync:writeContract } = useWriteContract()  
+    const { writeContractAsync:writeContract,isSuccess } = useWriteContract()  
 
-    const setData = async(_data:number)=>{
-        await writeContract({
+    const setContractData = async(_data:number)=>{
+        const tx = await writeContract({
             address: CONTRACT_ADDRESS,
             abi: abi,
             functionName: 'setData',
             args:[_data]
         })
+        return isSuccess
+         
     }
     
     
-    return { readData, setGetData, writeContract, readError, readContractError, isReadLoading,setData };
+    return { readData, setGetData, writeContract, readError, readContractError, isReadLoading,setContractData };
 };
 
