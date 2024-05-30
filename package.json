@@ -1,6 +1,6 @@
 {
   "name": "lisk-scaffold-dapp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Custom Lisk blockchain application scaffold",
   "repository": {
     "type": "git",

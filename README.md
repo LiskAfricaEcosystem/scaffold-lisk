@@ -1,7 +1,7 @@
 <!-- Title -->
 # Lisk Scaffold
 
-## Version 0.0.3
+## Version 0.0.4
 
 ### Overview
 
@@ -40,6 +40,7 @@ The following components are available in this scaffolding tool:
   - RainbowKit
   - Typescript
 - **Backend Framework:** Hardhat
+  - Javascript
 
 <!--  Usage Examples -->
 
