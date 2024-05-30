@@ -13,8 +13,8 @@
 
 #### Prerequisites
 
-- [Node.js ( >= v10.x) or higher](https://nodejs.org/en/download)
-- Yarn ([v1]((https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install)))
+- [Node.js (>= v10.x) or higher](https://nodejs.org/en/download)
+- [Yarn]([v1]((https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install)))
 - [Git](https://git-scm.com/downloads)
 
 <!-- Installation Guide -->
