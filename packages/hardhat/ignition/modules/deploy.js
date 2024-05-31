@@ -24,12 +24,12 @@ async function main() {
   await tx.wait();
   console.log("Initial data set to:", initialData);
 
-  // // step one get the NFT Marketplace 
-  // const mockNFTMarketplace = await hre.ethers.getContractFactory("MockNFTMarketplace");
-  //   // step two deploy the NFT Marketplace 
-  // const deployedNFT = await mockNFTMarketplace.deploy();
-  // await deployedNFT.waitForDeployment()    //  deployed(); depreciated
-  // console.log("NFT marketplace deployed to:", await deployedNFT.getAddress()) // .address); depreciated
+  // step one get the NFT Marketplace 
+  const mockNFTMarketplace = await hre.ethers.getContractFactory("MockNFTMarketplace");
+    // step two deploy the NFT Marketplace 
+  const deployedNFT = await mockNFTMarketplace.deploy();
+  await deployedNFT.waitForDeployment()    //  deployed(); depreciated
+  console.log("NFT marketplace deployed to:", await deployedNFT.getAddress()) // .address); depreciated
 
   // Step two, create a new instance of the NFTDAO contract
   // const nftDao = await hre.ethers.getContractFactory("NFTDAO");
