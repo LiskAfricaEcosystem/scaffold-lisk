@@ -20,15 +20,7 @@ export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const { address, isConnected } = useAccount();
 
-  const {
-    setGetData,
-    writeContract,
-    readError,
-    readContractError,
-    isReadLoading,
-    setContractData,
-    readData,
-  } = useMyContract();
+  const { writeContract, readError, readContractError, isReadLoading, setContractData, readData, } = useMyContract();
   const [data, setData] = useState<string | null>(null);
   const [inputValue, setInputValue] = useState<number>(0);
 

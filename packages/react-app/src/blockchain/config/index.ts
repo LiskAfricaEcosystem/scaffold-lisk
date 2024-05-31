@@ -9,7 +9,7 @@ if (!projectId) throw new Error('Project ID is not defined');
 
 // meta data for the dapp
 const metadata = {
-  name: 'Lisk-Scaffold', // PayU
+  name: 'Lisk-Scaffold', // PayU - project name or app name
   description: 'Lisk Scaffold Example Dapp', // PayU what something something 
   url: 'https://web3modal.com', // origin must match your domain & subdomain
   icons: ['https://avatars.githubusercontent.com/u/37784886'],

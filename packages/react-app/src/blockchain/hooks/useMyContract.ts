@@ -5,7 +5,7 @@ import abi from '../abis/SampleContract.json';
 const CONTRACT_ADDRESS = '0xd584D4BA3Dd0200b3e27d67Dd39647ea43B239c5'; // 0xSampleContractAddress
 
 export const useMyContract = () => {
-    const setGetData =()=>{
+    const setGetData = () =>{
         return {
             address: CONTRACT_ADDRESS,
             abi: abi,
@@ -20,7 +20,7 @@ export const useMyContract = () => {
         functionName: 'getData',
     });
     
-    const { writeContractAsync:writeContract,isSuccess } = useWriteContract()  
+    const { writeContractAsync:writeContract, isSuccess } = useWriteContract()  
 
     const setContractData = async(_data:number)=>{
         const tx = await writeContract({
@@ -29,11 +29,11 @@ export const useMyContract = () => {
             functionName: 'setData',
             args:[_data]
         })
-        return isSuccess
-         
+
+        return tx   
     }
     
     
-    return { readData, setGetData, writeContract, readError, readContractError, isReadLoading,setContractData };
+    return { readData, writeContract, readError, readContractError, isReadLoading, setContractData };
 };
 
