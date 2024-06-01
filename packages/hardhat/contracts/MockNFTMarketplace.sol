@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract MockNFTMarketplace {
+contract MockNFTMarketplace { 
     /// @dev Maintain a mapping of Fake TokenID to Owner addresses
     mapping(uint256 => address) public tokens;
     /// @dev Set the purchase price for each Fake NFT
