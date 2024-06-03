@@ -15,11 +15,13 @@ const createAsync = async () => {
   let availablePackages = {
     "react-app": "React",
     hardhat: "Hardhat",
+    foundry: "Foundry",
   };
 
   let packageNameMap = {
     "react-app": "react-app",
     hardhat: "hardhat",
+    foundry: "foundry",
   };
 
   let selectedPackages = [];
@@ -52,7 +54,10 @@ const createAsync = async () => {
     name: "scFramework",
     message: "Choose smart-contract framework:",
     default: availablePackages["hardhat"],
-    choices: [availablePackages["hardhat"], "None"],
+    choices: [
+      availablePackages["hardhat"],
+      availablePackages["foundry"],
+    ],
   });
 
   if (scFramework !== "None") {
@@ -88,7 +93,7 @@ const createAsync = async () => {
     let packageJson = {
       name: projectName,
       version: "1.0.0",
-      description: "A Lisk Dapp Scaffold",
+      description: "A Lisk Dapp Scaffold Dapp",
       private: true,
       author: "Jordan, Ronex, Antony",
       license: "MIT",
