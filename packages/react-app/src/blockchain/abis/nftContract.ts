@@ -65,4 +65,4 @@ export const contractNFT_ABI = [
       "stateMutability": "view",
       "type": "function"
     }
-  ],;
+  ];
