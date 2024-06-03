@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { useDebounce } from "use-debounce";
-import { usePrepareSendTransaction, useSendTransaction } from "wagmi";
 
 
-// what this does is simply disable the SendFunds function if the value passed is false
 interface SendFundsProps {
     disabled?: boolean;
 }
-
 
 export default function SendFunds(props: SendFundsProps) {
     // declare two state variables for the recipient and the amount
@@ -17,14 +14,34 @@ export default function SendFunds(props: SendFundsProps) {
     const [amount, setAmount] = useState("");
     const [debouncedAmount] = useDebounce(amount, 500); // useDebounce() hook to debounce the amount input
 
-
     return (
-        <>
-        <form>
-            
-        </>
-    )
+        <div>
+            <h2>Send Funds</h2>
+            <form>
+                <div>
+                    <label htmlFor="to">Recipient:</label>
+                    <input
+                        type="text"
+                        id="to"
+                        value={to}
+                        onChange={(e) => setTo(e.target.value)}
+                        disabled={props.disabled}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="amount">Amount (in wei):</label>
+                    <input
+                        type="number"
+                        id="amount"
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                        disabled={props.disabled}
+                    />
+                </div>
+                <button type="submit">
 
-
-
+                </button>
+            </form>
+        </div>
+    );
 }
