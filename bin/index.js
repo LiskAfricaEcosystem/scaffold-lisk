@@ -2,6 +2,7 @@
 console.log("Create a simple Lisk Dapp Scaffold");
 const commander = require("commander");
 const { createAsync } = require("./create.js");
+const { deployToVercel } = require("./deploy.js");
 
 const program = new commander.Command();
 
@@ -16,11 +17,17 @@ program
 .description("Generate a new Lisk project")
 .action(createAsync);
 
+program
+  .command("deploy")
+  .description("Deploy the Next.js app to Vercel")
+  .action(deployToVercel);
+
 program.on("--help", () => {
   console.log("");
   console.log("Examples:");
   console.log("  $ lisk-scaffold-dapp create");
   console.log("  $ lisk-scaffold-dapp create --template my-template");
+  console.log("  $ lisk-scaffold-dapp deploy");
 });
 
 if (process.stdin.isTTY) {

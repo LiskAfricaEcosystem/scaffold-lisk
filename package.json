@@ -12,6 +12,7 @@
     "url": "https://github.com/LiskAfricaEcosystem/scaffold-lisk/issues"
   },
   "homepage": "https://github.com/LiskAfricaEcosystem/scaffold-lisk/blob/main/README.md",
+  "private": true,
   "workspaces": [
     "bin/*"
   ],
@@ -37,5 +38,8 @@
   },
   "files": [
     "bin"
-  ]
+  ],
+  "scripts": {
+    "deploy": "node bin/index.js deploy"
+  }
 }
